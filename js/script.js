@@ -2,11 +2,17 @@
 // VARIABILI DI ETA CHILOMETRI PREZZO SCONTO E MESSAGGIO
 const kilometres = parseInt(prompt('inserire numero chilometri che vuoi percorrere'));
 const age = parseInt(prompt('inserire la tua età'));
+let insertOk = true
 let discount;
 let price = kilometres * 0.21
 let priceFixed = price.toFixed(2)
 let message = 'Ciao! In base ai chilometri che vuoi percorrere (' + kilometres + 'km) e in base ai nostri prezzi di 0.21€ per chilometro, il prezzo finale del biglietto è di: ' + priceFixed + '€. Grazie per averci scelto e buon viaggio! :D'
 
+// CONTROLLO DELLE VARIABILI KILOMETRES E AGE
+if(isNaN(kilometres) || isNaN(age)){
+    insertOk  = false
+    message = 'Errore! Dati non corretti!'
+}
 // VARIABILI CHE CAMBIANO IN BASE ALL ETA DELL UTENTE
 if(age < 18){
     discount = price * 20 / 100;
